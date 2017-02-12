@@ -1,0 +1,15 @@
+
+
+// set array for words to be guessed
+var words = ["Wakanda", "Batman", "Shadow", "Manhattan", "Xavier", "Wolverine", "Spawn"];
+
+//set user guesses and wins
+var user = {
+  guess: [],
+  wins: {}
+};
+
+var tries = 15;
+
+var computerGuess = words[Math.floor(Math.random() * words.length)];
+console.log(computerGuess);
