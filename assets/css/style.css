@@ -21,7 +21,6 @@ body {
 }
 
 .main-content{
-
   border:5px solid black;
   text-align: center;
   font-family: 'Bungee Shade', cursive;
@@ -37,4 +36,9 @@ body {
 }
 .word-heading{
   margin-bottom: 5em;
+}
+
+#current{
+  float:left;
+  display: inline;
 }
