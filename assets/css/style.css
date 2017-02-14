@@ -39,6 +39,10 @@ body {
 }
 
 #current{
-  float:left;
+
   display: inline;
+}
+
+#counter{
+  text-align: center;
 }
