@@ -46,3 +46,7 @@ body {
 #counter{
   text-align: center;
 }
+
+.word{
+  margin-bottom: 2em;
+}
