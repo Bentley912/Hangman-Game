@@ -16,6 +16,8 @@
     attempts: 15,
   };
 
+
+
   var wins = 0;
 //array for dashes that equal length of word
   var dashes = [];
@@ -31,6 +33,20 @@ document.onkeyup = function(event){
           console.log(user.guesses);
           user.attempts--;
           console.log(user.attempts);
+          document.querySelector("#guesses").innerHTML = user.guesses;
+          document.querySelector("#attempts").innerHTML = user.attempts;
+
+          //get indexes where selection exists in randomArray
+							function getAllIndexes(arr, val) {
+							var index = [];
+							for (i = 0; i < arr.length; i++) {
+									if (arr[i]===val)
+									index.push(val);
+							 return(index);
+							}
+            }    
+              var indexes = getAllIndexes(letters, userGuess);
+							console.log(indexes);
 };
 
 //pushes dashes to array to display dashes that represent hidden letters in selected word

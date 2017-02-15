@@ -50,3 +50,8 @@ body {
 .word{
   margin-bottom: 2em;
 }
+
+#guesses{
+  width:100%;
+  margin-bottom: 3em;
+}
