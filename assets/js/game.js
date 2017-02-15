@@ -6,6 +6,10 @@
     var computerGuess = words[Math.floor(Math.random() * words.length)];
     //empty array for selected word letter split
     var letters = [];
+    //Split word into indvidual letters
+    var split = computerGuess.split("");
+    letters.push(split);
+    console.log(letters);
   //set user guesses and wins
   var user = {
     guesses: [],
