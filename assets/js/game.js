@@ -19,6 +19,8 @@
   var wins = 0;
 //array for dashes that equal length of word
   var dashes = [];
+  var indexes;
+  var userGuess;
 
 //creates mechanisms for key event
     document.onkeyup = function(event){
@@ -31,27 +33,24 @@
           console.log(user.guesses);
           user.attempts--;
           console.log(user.attempts);
-          document.querySelector("#guesses").innerHTML = user.guesses;
           document.querySelector("#attempts").innerHTML = user.attempts;
 
-          function getAllIndexes(arr,val){
-            var indexes = [];
-            for(i = 0;i<arr.length; i++){
-              if (arr[i] === val){
-                indexes.push(i);
-              }
-            }
-            return(indexes);
-          }
-          var indexes = getAllIndexes(split, userGuess);
-          console.log(indexes);
+          //replace "__" in placeHolderArray with playerSelection at indexes
+
+          document.querySelector("#guesses").innerHTML = user.guesses;
+
+          function getIndexes(arr, val) {
+          var indexes = [];
+          for (i = 0; i < arr.length; i++)
+              if (arr[i]===val)
+              indexes.push(i);
+           return(indexes);
+         }
+
+         var match = getIndexes(letters, userGuess);
     };
 
 //get indexes where selection exists in randomArray
-
-
-
-
 
       console.log("letter", letters);
 
