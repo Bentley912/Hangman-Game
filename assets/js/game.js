@@ -19,7 +19,7 @@
   var wins = 0;
 //array for dashes that equal length of word
   var dashes = [];
-  var indexes;
+  var indexes = [];
   var userGuess;
 
 //creates mechanisms for key event
@@ -39,18 +39,19 @@
 
           document.querySelector("#guesses").innerHTML = user.guesses;
 
-          function getIndexes(arr, val) {
-          var indexes = [];
-          for (i = 0; i < arr.length; i++)
-              if (arr[i]===val)
-              indexes.push(i);
-           return(indexes);
-         }
+          function getIndexes(arr,val){
+            for(i=0;i<arr.length;i++){
+              if(arr[i] === val){
+                indexes.push(i);
+                return indexes
+              }
+              var indexes = getIndexes(letters,userGuess);
+            }
+          }
 
-         var match = getIndexes(letters, userGuess);
     };
 
-//get indexes where selection exists in randomArray
+
 
       console.log("letter", letters);
 
