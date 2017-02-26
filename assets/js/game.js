@@ -2,67 +2,39 @@
 
 
 //sets initial array for word library and math for
-  var words = ["Wakanda", "Batman", "Shadow", "Manhattan", "Xavier", "Wolverine", "Spawn"];
-  var computerGuess = words[Math.floor(Math.random() * words.length)];
-    //empty array for selected word letter split
-  var letters = [];
-    //Split word into indvidual letters
-  var split = computerGuess.split("");
-    letters.push(split);
+var words = ["Wakanda", "Batman", "Shadow", "Manhattan", "Xavier", "Wolverine", "Spawn"];
+var wins = 0;
+ initialize();
+function initialize(){
+  computerGuess = words[Math.floor(Math.random() * words.length)];
+  letters = computerGuess.split("");
+  displayLetters = [];
 
-  //set user guesses and wins
-  var user = {
-    guesses: [],
-    attempts: 15,
-  };
+  for ( i = 0; i<letters.length;i++){
+    displayLetters.push("_ ");
+  }
+  userGuesses = [];
+  attempts = letters.length +5;
 
-  var wins = 0;
-//array for dashes that equal length of word
-  var dashes = [];
-  var indexes = [];
-  var userGuess;
+  $('#counter').html(wins);
+  $('#attempts').html(attempts);
+  $('#current').html(displayLetters);
+  $('#guesses').html(userGuesses);
+}
 
-//creates mechanisms for key event
-    document.onkeyup = function(event){
-// set array for words to be guessed
-
-          var userGuess = event.key;
-          console.log(computerGuess);
-          console.log(userGuess);
-          user.guesses.push(userGuess);
-          console.log(user.guesses);
-          user.attempts--;
-          console.log(user.attempts);
-          document.querySelector("#attempts").innerHTML = user.attempts;
-
-          //replace "__" in placeHolderArray with playerSelection at indexes
-
-          document.querySelector("#guesses").innerHTML = user.guesses;
-
-          function getIndexes(arr,val){
-            for(i=0;i<arr.length;i++){
-              if(arr[i] === val){
-                indexes.push(i);
-                return indexes
-              }
-              var indexes = getIndexes(letters,userGuess);
-            }
-          }
-
-    };
+$(document).on("keyup", function(){
+    attempts--;
+    keypress = event.key;
+    userGuesses.push(keypress);
 
 
+  for (i=-1;i<letters.length;i++){
+     if (keypress ==letters[i]){
+       displayLetters[i] = keypress;
+     }
+   }
 
-      console.log("letter", letters);
-
-//pushes dashes to array to display dashes that represent hidden letters in selected word
-                for (i=1;i <= computerGuess.length;i++ ){
-
-                    dashes.push("_");
-                    //document.querySelector(".container");
-                    //document.querySelector(".main-content");
-
-                }
-//displays content on page
-          document.querySelector("#current").innerHTML = dashes.join("");
-          document.querySelector("#counter").innerHTML = wins;
+   $('#attempts').html(attempts);
+   $('#guesses').html(userGuesses);
+   $('#current').html(displayLetters);
+});
